@@ -24,10 +24,16 @@ test("multiplicacion de dos numero negativos debe ser positiva", ()=>{
   expect(calculator.multiply(-5,-5)).toBe(25)
 })
 
-test("division entre cero = infinito", ()=>{
+/* test("division entre cero = infinito", ()=>{
   expect(calculator.divide(8,0)).toBe(Infinity)
-})
+}) */
 
 test("division normal 10/2 = 5", ()=>{
   expect(calculator.divide(10,2)).toBe(5)
 })
+
+/* Probar que falle al dividir en cero  */
+test('probar que de error dividir en cero', () => {
+
+  expect(() => calculator.divide(10, 0)).toThrow();
+});
