@@ -46,3 +46,28 @@ expect(controller2.getUsers()).toContain(userA)
 expect(controller2.getUsers()).toContain(userB)
 })
 
+/* Prueba encontrar un usuario por email que si existe */
+test('encontrar usuario por email',()=>{
+  const controller3 = new UserController();
+  const userA = new User(1, 'Carlos', 'Carlos@gmail');
+  const userB = new User(2, 'Danlya', 'Danlya@gmail');
+  controller3.add(userA)
+  controller3.add(userB)
+  const usuarioFind = controller3.findByEmail('Carlos@gmail')
+   expect(usuarioFind).toBeDefined();
+  expect(usuarioFind).not.toBeNull();
+  expect(usuarioFind).toBe(userA)
+})
+
+/* Prueba buscar un usuario por email que no existe */
+
+test('encontrar un usaurio por email que no existe', ()=>{
+  const controller4 = new UserController();
+  const userA = new User(1, 'Carlos', 'Carlos@gmail');
+  const userB = new User(2, 'Danlya', 'Danlya@gmail');
+  controller4.add(userA)
+  controller4.add(userB)
+  const resultado = controller4.findByEmail('Carlos_no_existe@gmail')
+  expect(resultado).toBe(undefined)
+
+})
