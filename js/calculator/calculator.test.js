@@ -23,3 +23,11 @@ test('multiplicacion x 0 debe ser 0', ()=>{
 test("multiplicacion de dos numero negativos debe ser positiva", ()=>{
   expect(calculator.multiply(-5,-5)).toBe(25)
 })
+
+test("division entre cero = infinito", ()=>{
+  expect(calculator.divide(8,0)).toBe(Infinity)
+})
+
+test("division normal 10/2 = 5", ()=>{
+  expect(calculator.divide(10,2)).toBe(5)
+})
