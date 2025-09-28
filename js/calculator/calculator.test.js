@@ -15,3 +15,11 @@ test('subtract 5 - 4 to equal 1', () => {
 test('subtract -5 - -10 to equal 5', () => {
   expect(calculator.subtract(-5, -10)).toBe(5);
 });
+
+test('multiplicacion x 0 debe ser 0', ()=>{
+  expect(calculator.multiply(5,0)).toBe(0)
+})
+
+test("multiplicacion de dos numero negativos debe ser positiva", ()=>{
+  expect(calculator.multiply(-5,-5)).toBe(25)
+})
