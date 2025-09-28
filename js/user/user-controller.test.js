@@ -71,3 +71,22 @@ test('encontrar un usaurio por email que no existe', ()=>{
   expect(resultado).toBe(undefined)
 
 })
+
+
+test('encontrar un usuario por su ID existente', () => {
+  const controller = new UserController();
+  const userA = new User(1, 'Carlos', 'Carlos@gmail');
+  const userB = new User(2, 'Danlya', 'Danlya@gmail');
+  controller.add(userA);
+  controller.add(userB);
+  const foundUser = controller.findById(1);
+  expect(foundUser).toBe(userA);
+});
+
+test('regresar undefined si el ID del usuario no existe', () => {
+  const controller = new UserController();
+  const userA = new User(1, 'Carlos', 'Carlos@gmail');
+  controller.add(userA);
+  const result = controller.findById(99);
+  expect(result).toBeUndefined();
+});
